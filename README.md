@@ -61,6 +61,6 @@ The process function expect to get data as json object with this format:
  {"sets": [0,1],   "size": 30000},
  {"sets": [0,2],    "size": 60000},
  {"sets": [0,3],    "size": 1800},
- {“sets”: [0,2,3], “size: 5000}
-]'
+ {"sets": [0,2,3],  “size": 5000}
+]
 ```
