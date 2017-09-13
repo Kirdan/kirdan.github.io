@@ -76,7 +76,7 @@ function numberFormater(number) {
     else return (number/1000000).toFixed(1) + "M";
 }
  
-d3.json("static/common/js/test.json", function(error, raw_graph) {
+d3.json("data/twitter.json", function(error, raw_graph) {
   if (error) throw error;
   
   var scaleArea = d3.scaleLinear()
