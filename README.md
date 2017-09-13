@@ -13,3 +13,25 @@ Sets and Intersections are represented as 2 types of vertices, disks and rings, 
 <p align="center">
  <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/AnB.png">
 </p>
+This is equivalent to this Venn diagram:
+<p align="center">
+ <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/venn_AnB.png">
+</p>
+
+### Topological Rules:
+* Sets/disks are never connected directly, only through intersections/rings
+* Intersections/rings are never connected to other intersections/rings
+* A set/disk can be connected to many intersections/rings
+* An intersection/ring can be connected to many sets/disks
+
+## Putting it all together
+
+Consider this iconic Venn image:
+<p align="center">
+ <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/venn.png">
+</p>
+Here is its g4s equivalent:
+<p align="center">
+<img src="https://github.com/Kirdan/kirdan.github.io/blob/master/g4s.png">
+ </p>
+
