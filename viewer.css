@@ -1,0 +1,46 @@
+body {
+  padding-top: 5px;
+}
+.starter-template {
+  padding: 0.5em 0.5rem;
+  text-align: center;
+}
+
+#inspector {
+	visibility: hidden;
+
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+#instructions {
+	
+	padding-right: 30px;
+	padding-left: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+
+	position: absolute;
+	bottom: 0px;
+
+	word-wrap:break-word;
+
+	background-color: transparent;
+}
+
+.row{
+    display: table;
+}
+
+.row [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
+ul {
+	margin-left: 0px;
+	padding-left: 12px;
+}
