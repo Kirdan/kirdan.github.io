@@ -47,6 +47,7 @@ You can check a live demo of g4s [here](https://kirdan.github.io/). The data in 
 
 ## How to Use
 Prerequisite the d3.js v4.x. https://github.com/d3/d3
+
 After d3.js include the g4s.js library
 
 The process function expect to get data as json object with this format:
