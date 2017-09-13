@@ -1,0 +1,30 @@
+text {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+} 
+
+.links line {
+  stroke: grey;
+  stroke-opacity: 0.2;
+}
+
+.nodes circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.selected_intersection {
+	stroke-width: 10px;
+}
+
+.smallnode {
+	opacity: 0;
+	padding: 25px 0px 25px 0px;
+}
+
+.smallnode:hover {
+	opacity: 1;
+}
+
+.setvaluetext {
+	fill: white;
+}
