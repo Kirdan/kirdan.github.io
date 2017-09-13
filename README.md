@@ -1,5 +1,7 @@
 # Graph for Sets 
 
+[Live demo](https://kirdan.github.io/)
+
 ## Overview
 The motivation for this project is introducing a new methodology for visualizing sets and intersections. Understanding relationships between sets and their intersections provides insights that are useful for data analysis.
 
@@ -38,3 +40,5 @@ The main advantage of g4s is making the intersection a first class citizen in it
 
 The g4s approach scales and can effectively represent the relations among many sets, as demonstrated in this [demo](https://kirdan.github.io/)
 
+## About the Implementation
+To simplify the visualization algorithm I decided to go with force-directed approach. That pretty much dictated the choice of the excellent [d3.js library](http://d3js.org), that besides being an industry leader in data visualization has built in support for force directed graph. That enabled keeping the code concise.
