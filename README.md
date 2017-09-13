@@ -34,4 +34,7 @@ Here is its g4s equivalent:
 <p align="center">
 <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/g4s.png">
  </p>
+The main advantage of g4s is making the intersection a first class citizen in its visual representation, as opposed to a “side effect” created by intersecting other entities. Intersections provide important insights and are being studied and used frequently in almost any data driven industry. g4s provides them the proper representation they deserve. 
+
+The g4s approach scales and can effectively represent the relations among many sets, as demonstrated in this [demo](https://kirdan.github.io/)
 
