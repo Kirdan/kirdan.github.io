@@ -45,10 +45,10 @@ Here is its g4s equivalent:
  </p>
 The main advantage of g4s is making the intersection a first class citizen in its visual representation, as opposed to a “side effect” created by intersecting other entities. Intersections provide important insights and are being studied and used frequently in almost any data driven industry. g4s provides them the proper representation they deserve. 
 
-The g4s approach scales and can effectively represent the relations among many sets, as demonstrated in this [demo](https://kirdan.github.io/)
+The g4s approach scales and can effectively represent the relations among many sets, as demonstrated in this [demo](https://kirdan.github.io/).
 
 ## About the Implementation
-To simplify the visualization algorithm I decided to go with force-directed approach. That pretty much dictated the choice of the excellent [d3.js library](http://d3js.org), that besides being an industry leader in data visualization has a built-in support for force directed graph. That enabled keeping the code concise.
+To simplify the visualization algorithm I decided to go with force-directed approach. That pretty much dictated the choice of the excellent [d3.js library](http://d3js.org), that besides being an industry leader in data visualization has a built-in support for force directed graphs. That enabled keeping the code concise.
 
 You can check a live demo of g4s [here](https://kirdan.github.io/). The data in this example is taken from twitter. It provides some interesting insights, showing the various intersections between 6 groups of followers, following [Donald Trump](https://twitter.com/realDonaldTrump), [NASA](https://twitter.com/nasa), the [NRA](https://twitter.com/nra), [Neil deGrasse Tyson](https://twitter.com/neiltyson), [Alex Jones](https://twitter.com/realalexjones) and the [Flat Earth Organization](https://twitter.com/FlatEarthOrg) (totally random selection…). 
 
