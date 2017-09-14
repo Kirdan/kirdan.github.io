@@ -1,6 +1,6 @@
 # Graph for Sets 
 
-[Live demo](https://kirdan.github.io/)
+[Live demo](https://kirdan.github.io/){:target="_blank"}
 
 ## Overview
 The motivation for this project is introducing a new methodology for visualizing sets and intersections. Understanding relationships between sets and their intersections provides insights that are useful for data analysis.
