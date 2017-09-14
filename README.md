@@ -53,11 +53,11 @@ To simplify the visualization algorithm I decided to go with force-directed appr
 You can check a live demo of g4s [here](https://kirdan.github.io/). The data in this example is taken from twitter. It provides some interesting insights, showing the various intersections between 6 groups of followers, following [Donald Trump](https://twitter.com/realDonaldTrump), [NASA](https://twitter.com/nasa), the [NRA](https://twitter.com/nra), [Neil deGrasse Tyson](https://twitter.com/neiltyson), [Alex Jones](https://twitter.com/realalexjones) and the [Flat Earth Organization](https://twitter.com/FlatEarthOrg) (totally random selection…). 
 
 ## How to Use
-Prerequisite the d3.js v4.x. https://github.com/d3/d3
+Prerequisite: the d3.js v4.x. https://github.com/d3/d3.
 
-After d3.js include the g4s.js library
+After d3.js include the g4s.js library.
 
-The process function expect to get data as json object with this format:
+The process function expects to get data as json object with this format:
 ```json
 [
  {"sets": [0],   "label": "name1", "size": 500000},
