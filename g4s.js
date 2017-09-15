@@ -6,7 +6,7 @@ var graph_master = [];
 var graph = [];
 var links = [];
 var node, link, label, valueLabel;
-var nodeGroup, textGroup;
+var nodeGroup, textGroup, linkGroup;
 var selected_sets = new Set();
 var MAX_INTERSECTION;
 var inspector_message = {};
@@ -117,9 +117,10 @@ d3.json("data/twitter.json", function(error, raw_graph) {
 function init() {
     graph = graph_master.slice(0);
     
-    link = svg.append("g").attr("class", "links")
-        .selectAll("link")
-        .data(links, getId);
+    linkGroup = svg.append("g").attr("class", "links");
+
+    link = linkGroup.selectAll("link")
+            .data(links, getId);
     
     nodeGroup = svg.append("g").attr("class", "nodes");
     node = nodeGroup.selectAll("circle")
@@ -149,7 +150,8 @@ function updateGraph() {
     var linkEnter =  link
         .enter()
           .append("line")
-            .attr("id", getId );
+            .attr("id", getId)
+            .attr("class",l => "l"+l.id.split("to")[0]+ " l"+l.id.split("to")[1]);
     link.exit().remove();
     link = linkEnter.merge(link);
 
@@ -160,8 +162,8 @@ function updateGraph() {
         .attr("fill", d =>  d.group == 1 ? color(d.sets[0]) : "white" )
         .style("stroke", d => d.group != 1 ? blendColors(d.sets.map(color)) : "#fff") 
         .style("stroke-width", d => d.group != 1 ? 5 : 1.5 )
-        .attr("id", d => d.id )
-        .attr("class", d => d.group == 1 ? "set" : "intersection")
+        .attr("id", getId)  //.attr("id", d => d.id )
+        .attr("class", d => d.group == 1 ? "set" : "intersection " + d.sets.map(s => "g" + s).join(" "))
           .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -374,8 +376,9 @@ function topThreeIntersections() {
 
 
 function updateData(nodes, links) {
-   
-  link = link.data(links);
+
+  link = linkGroup.selectAll("line")
+      .data(links, getId);
    
   node = nodeGroup.selectAll("circle")
      .data(nodes, getId);
@@ -416,11 +419,10 @@ function focusNode(d) {
 
   if(d.group == 1) {
         let set_color = d3.select("#" + d.id).style("fill");
-        d3.selectAll("circle")
-                 .data(intersectionsOfSet(d.sets[0]), getId)
+        d3.selectAll("." + d.id)
                  .attr("fill", set_color);
-        d3.selectAll("line")
-                  .data(linksOfSet(d.id), getId)
+
+        d3.selectAll(".l" + d.id)
                   .style("stroke", set_color)
                   .style("stroke-opacity", 1);
 
@@ -470,12 +472,10 @@ function unfocusNode(d) {
 
     if(d.group == 1) {
       
-            d3.selectAll("circle")
-                         .data(intersectionsOfSet(d.sets[0]), getId)
+            d3.selectAll("." + d.id)
                          .attr("fill", "white");
   
-            d3.selectAll("line")
-                          .data(linksOfSet(d.id), getId)
+            d3.selectAll(".l" + d.id)
                           .style("stroke", "grey")
                           .style("stroke-opacity", 0.2);
   
