@@ -48,33 +48,33 @@ var getLabelID = s => "n" + s.id;
 
 function blendColors(colors) {
 
-  	var regseg = /[\da-z]{2}/gi;
-  	
-  	var d2h = v => v.toString(16);
-  	var h2d = v => parseInt(v, 16);
-  	 
-  	var ch = [];
-	
-  	for (var i = colors.length - 1; i >= 0; i--) {
-  		ch[i] = colors[i].match(regseg);
-  	}
-	
-  	let average_seg = [], blend = [];
+    var regseg = /[\da-z]{2}/gi;
+    
+    var d2h = v => v.toString(16);
+    var h2d = v => parseInt(v, 16);
+     
+    var ch = [];
+  
+    for (var i = colors.length - 1; i >= 0; i--) {
+      ch[i] = colors[i].match(regseg);
+    }
+  
+    let average_seg = [], blend = [];
     
     for (var i = 2; i >= 0; --i) {
-	       
-  	    var total = 0; 
-  	    
+         
+        var total = 0; 
+        
         for (var j = ch.length - 1; j >= 0; j--) {
-  	    		total += h2d(ch[j][i]);
-  	    }
+            total += h2d(ch[j][i]);
+        }
 
-  	    average_seg = d2h( Math.floor( total / ch.length ) );
+        average_seg = d2h( Math.floor( total / ch.length ) );
 
-  	    blend[i] = average_seg.length == 2 ? '' + average_seg : '0' + average_seg; 
-  	 }
+        blend[i] = average_seg.length == 2 ? '' + average_seg : '0' + average_seg; 
+     }
 
-  	 return "#" + blend.join("");
+     return "#" + blend.join("");
 }
 
 function numberFormater(number) {
