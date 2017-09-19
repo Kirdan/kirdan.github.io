@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Graph for Sets</title>
+	<meta name="author" content="Yoav Ilan">
+	<meta property = "og:title" content="g4s - New Concept in Data Visualization"/>
+	<meta property='og:image' content="https://github.com/Kirdan/kirdan.github.io/blob/master/m/g4s_twitter.png"/>
+	<meta property='og:description' content="Graph for Sets (g4s) is a new way of displaying sets and intersections. g4s aims to be simple, intuitive, scalable as well as aesthetically pleasing"/>
+	<meta property='og:url' content="https://kirdan.github.io/" />
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="	sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	 
+	<link href="static/common/css/viewer.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="static/common/css/g4s.css">
+</head>
+<body>
+
+<div class="container">
+
+	<div class="starter-template">
+	  <h1>Graph for Sets</h1>
+	  <p class="lead">This g4s exmaple visualizes the various intersections among some twitter influencers</p> 
+	</div>
+	
+		<div class="row">
+			<div class="col-md-8">
+				<div id="twitter_graph"></div>
+			</div>
+	
+			<div class="col-md-4 ">
+				
+				<div class="jumbotron" id="inspector"></div>
+					
+					<div class="jumbotron" id="instructions" >
+						<h4>How to Use</h4>
+						<ul>
+							<li>Move the mouse over a set to show its intersections</li>
+							<li>Move the mouse over an intersection to show its sets</li>
+							<li>Double-click an intersection to filter out all the other intersections and the sets it is not intersected with.Double-click it again to return to the full graph</li>
+							<li>Double-click a set to selected it, double-click it to deselect. Select multiple sets to view their intersection all other intersections will fade out)</li>
+						</ul>
+					</div>		
+			</div>
+
+		</div>
+		<div class="row">
+			<h3>About This Graph</h3>
+			<p>This interactive graph is an example for using the g4s library, available <a href="https://github.com/Kirdan/kirdan.github.io" target="_blank">here</a>.</p>
+			<p>The data was acquired from twitter by using their  <a href="https://dev.twitter.com/rest/reference/get/followers/ids" target="_blank">GET followers/ids API</a>. The data collection was finalized by Sep 8, 2017, thus checking these twitter accounts now will show different numbers. I will update the data periodically but not too frequently. Due to twitter’s <a href="https://dev.twitter.com/rest/public/rate-limiting" target="_blank">API Rate Limits</a> it takes several days to get the data for these 6 accounts.</p>
+		</div>
+</div>
+
+<footer class="footer">
+    <div class="container footer_container">
+    	<p class="text-muted">© 2017 Copyright: <a href="https://github.com/Kirdan/kirdan.github.io/blob/master/LICENSE" target="_blank"> Yoav Ilan </a></p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="static/common/js/d3.js"></script>
+<script type="text/javascript" src="static/common/js/g4s.js"></script>
+
+<script type="text/javascript">
+
+	d3.json("static/common/js/test.json", function(error, sets) {
+      	if (error) throw error;
+      	g4s.init(sets, "twitter_graph", false, null, null, null, null, null);
+    });
+   	
+	var intersectionEvent = new Event('build');
+	document.addEventListener('build', updateInspector, false);
+	
+	function updateInspector() {
+		if(Object.keys(inspector_message).length == 0) return;
+
+		document.getElementById("inspector").style.visibility = "visible";
+
+		var concatSets = (total, set) => total + "<b>" + graph.find(d => d.id === "g" + set).label + "</b> AND ";
+		
+		var getPrecentage = (total, set)  =>  total + "<li class='list-group-item'>" + graph.find(s => s.id === "g" + set).label + ": "
+													+ (inspector_message.size / graph.find(s => s.id === "g" + set).size * 100).toFixed(2) +  "%</li>";
+						 							
+		var message = "";
+
+		switch(inspector_message.type) {
+
+				case "set":
+					message = inspector_message.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector_message.label + "</b>";
+					break;
+
+				case "intersection":
+					message = inspector_message.size.toLocaleString('en-US') + " twitter accounts follow " 
+					+ inspector_message.intersection.sets.reduce(concatSets, "").slice(0, -4);
+
+					message += "<h4> The precentage of followers in this intersection:</h4>";
+					message += inspector_message.intersection.sets.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
+
+					break;
+
+				case "selected_set":
+					message = inspector_message.set.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector_message.set.label + "</b>";
+					break;
+
+				case "selected_sets":
+					message = inspector_message.size.toLocaleString('en-US') + " twitter accounts follow " 
+					+ inspector_message.intersection.reduce(concatSets, "").slice(0, -4);
+
+					message += "<h4> The precentage of followers in this intersection:</h4>";
+					message += inspector_message.intersection.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
+					break;
+
+				default:
+		}
+
+		document.getElementById("inspector").innerHTML = message;
+
+	}
+
+
+</script>
+
+</body>
+</html>
