@@ -17,14 +17,12 @@ Sets and Intersections are represented as 2 types of vertices, disks and rings, 
 </p>
 Sets and their intersections are connected with edges(links):
 <p align="center">
- <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/AnB_linked.png">
+ <img src="m/AnB_linked.png">
 </p>
 This is equivalent to this Venn diagram:
 <p align="center">
- <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/venn_AnB.png">
+ <img src="m/venn_AnB.png">
 </p>
-
-
 
 
 ### Topological Rules:
@@ -37,11 +35,11 @@ This is equivalent to this Venn diagram:
 
 Consider this iconic Venn image:
 <p align="center">
- <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/venn.png">
+ <img src="m/venn.png">
 </p>
 Here is its g4s equivalent:
 <p align="center">
-<img src="https://github.com/Kirdan/kirdan.github.io/blob/master/g4s.png">
+<img src="m/g4s.png">
  </p>
 The main advantage of g4s is making the intersection a first class citizen in its visual representation, as opposed to a “side effect” created by intersecting other entities. Intersections provide important insights and are being studied and used frequently in almost any data driven industry. g4s provides them the proper representation they deserve.
 
