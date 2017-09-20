@@ -13,7 +13,7 @@ Graph for Sets (g4s) is a new way of displaying sets and intersections. g4s aims
 
 Sets and Intersections are represented as 2 types of vertices, disks and rings, where sets are disks and intersections are rings. For example, the following represent sets A and B and their intersection AnB:
 <p align="center">
- <img src="https://github.com/Kirdan/kirdan.github.io/blob/master/AnB.png">
+ <img src="m/AnB.png">
 </p>
 Sets and their intersections are connected with edges(links):
 <p align="center">
