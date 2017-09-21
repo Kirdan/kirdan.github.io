@@ -23,8 +23,7 @@ g4s.setLinkStrenght = function(strength) {
 }
 
 g4s.inspector = function(handleMessage) {
-  intersectionEvent = new Event('build');
-  document.addEventListener('build', handleMessage, false);
+    document.addEventListener('build', handleMessage, false);
 }
 
 g4s.getInspector = function() {
@@ -189,6 +188,8 @@ function init() {
 
     simulation.force("link")
         .links(links);
+
+    intersectionEvent = new Event('build');
 }
  
 

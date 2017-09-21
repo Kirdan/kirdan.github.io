@@ -11,7 +11,7 @@ When thinking about data intersections Venn diagrams and Euler diagrams immediat
 
 Graph for Sets (g4s) is a new way of displaying sets and intersections. g4s aims to be simple, intuitive, scalable as well as aesthetically pleasing. The concept utilizes topological graph, following these rules and conventions:
 
-Sets and Intersections are represented as 2 types of vertices, disks and rings, where sets are disks and intersections are rings. For example, the following represent sets A and B and their intersection AnB:
+Sets and Intersections are represented as 2 types of vertices, disks and rings, where sets are disks and intersections are rings. For example, the following represent sets A and B and their intersection A&cap;B:
 <p align="center">
  <img src="m/AnB.png">
 </p>
