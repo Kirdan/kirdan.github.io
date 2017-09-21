@@ -22,6 +22,15 @@ g4s.setLinkStrenght = function(strength) {
     simulation.alpha(1).restart();
 }
 
+g4s.inspector = function(handleMessage) {
+  intersectionEvent = new Event('build');
+  document.addEventListener('build', handleMessage, false);
+}
+
+g4s.getInspector = function() {
+  return inspector_message;
+}
+
 const SET_AREA_RATIO = 0.2;
 var HEIGHT = 800;
 var WIDTH = 800;
@@ -38,6 +47,7 @@ var nodeGroup, textGroup, linkGroup;
 var selected_sets = new Set();
 var MAX_INTERSECTION;
 var inspector_message = {};
+var intersectionEvent;
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 

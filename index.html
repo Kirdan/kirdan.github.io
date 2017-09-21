@@ -73,52 +73,53 @@
 <script type="text/javascript" src="g4s.js"></script>
 
 <script type="text/javascript">
+	
+   	fetch('https://kirdan.github.io/data/twitter.json')
+   		.then((response) => response.json())
+   		.then((sets) => g4s.init(sets, "twitter_graph"));
 
-	d3.json("data/twitter.json", function(error, sets) {
-      	if (error) throw error;
-      	g4s.init(sets, "twitter_graph", false, null, null, null, null, null);
-    });
-   	
-	var intersectionEvent = new Event('build');
-	document.addEventListener('build', updateInspector, false);
+	g4s.inspector(updateInspector);
 	
 	function updateInspector() {
-		if(Object.keys(inspector_message).length == 0) return;
+
+		var inspector = g4s.getInspector();
+
+		if(Object.keys(inspector).length == 0) return;
 
 		document.getElementById("inspector").style.visibility = "visible";
 
 		var concatSets = (total, set) => total + "<b>" + graph.find(d => d.id === "g" + set).label + "</b> AND ";
 		
 		var getPrecentage = (total, set)  =>  total + "<li class='list-group-item'>" + graph.find(s => s.id === "g" + set).label + ": "
-													+ (inspector_message.size / graph.find(s => s.id === "g" + set).size * 100).toFixed(2) +  "%</li>";
+													+ (inspector.size / graph.find(s => s.id === "g" + set).size * 100).toFixed(2) +  "%</li>";
 						 							
 		var message = "";
-
-		switch(inspector_message.type) {
+		
+		switch(inspector.type) {
 
 				case "set":
-					message = inspector_message.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector_message.label + "</b>";
+					message = inspector.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector.label + "</b>";
 					break;
 
 				case "intersection":
-					message = inspector_message.size.toLocaleString('en-US') + " twitter accounts follow " 
-					+ inspector_message.intersection.sets.reduce(concatSets, "").slice(0, -4);
+					message = inspector.size.toLocaleString('en-US') + " twitter accounts follow " 
+					+ inspector.intersection.sets.reduce(concatSets, "").slice(0, -4);
 
 					message += "<h4> The precentage of followers in this intersection:</h4>";
-					message += inspector_message.intersection.sets.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
+					message += inspector.intersection.sets.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
 
 					break;
 
 				case "selected_set":
-					message = inspector_message.set.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector_message.set.label + "</b>";
+					message = inspector.set.size.toLocaleString('en-US') + " twiiter accounts follow <b>" + inspector.set.label + "</b>";
 					break;
 
 				case "selected_sets":
-					message = inspector_message.size.toLocaleString('en-US') + " twitter accounts follow " 
-					+ inspector_message.intersection.reduce(concatSets, "").slice(0, -4);
+					message = inspector.size.toLocaleString('en-US') + " twitter accounts follow " 
+					+ inspector.intersection.reduce(concatSets, "").slice(0, -4);
 
 					message += "<h4> The precentage of followers in this intersection:</h4>";
-					message += inspector_message.intersection.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
+					message += inspector.intersection.reduce(getPrecentage, "<ul class='list-group'>") + "</ul>";
 					break;
 
 				default:
