@@ -86,7 +86,7 @@ g4s.init(data, container, tuning, height, width, charge, link_distance, link_str
 ```
 #### tuning
 Render a graph in tuning mode, including sliders that change some of the force parameters.
-Tuning can be set to true or false, defaulting on false. More on this below.
+Tuning can be set to true or false, defaulting on false. More on this [below](#tuning-mode).
 
 #### height and width
 Sets the dimensions for the SVG frame. If height and width are not specified both will default to 800 pixels.
@@ -129,3 +129,7 @@ In some cases fine tuning the parameters that are related to force-directed simu
 ```javascript
 get.init(data, "myContainer", true)
 ```
+Live example:
+<p align="center">
+  <a href="https://bl.ocks.org/Kirdan/48353df2587e0cf0a7df78d615220cf9"><img src="m/tuning_mode.png"></a>
+</p>
