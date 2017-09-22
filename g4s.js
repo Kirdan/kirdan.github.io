@@ -654,8 +654,8 @@ function setFroceControls() {
     ul.append(link_distance_li);
     ul.append(charge_li);
 
-    var twitter_graph = document.getElementById("twitter_graph");
-    twitter_graph.append(force_controls);
+    // var twitter_graph = document.getElementById("twitter_graph");
+    container_element.append(force_controls);
     
     d3.select("#charge_control").on("input", adjustCharge);
     d3.select("#link_distance_control").on("input", adjustLinkDistance);

@@ -5,8 +5,7 @@ g4s - shortcut for **Graph for Sets**, it's a javascript library, based on [D3.j
 * [Data Format](#data-format)
 * [Getting Started](#getting-started)
 * [Layout Customization](#layout-customization)
-* Tuning Mode
-* Messages
+* [Tuning Mode](#tuning-mode)
 
 ## Data Format
 g4s expects to get data in the format of JSON object.
@@ -118,4 +117,15 @@ The difference between the link actual distance and its desired distance is affe
 Example, the following set the link strength to 0.8:
 ```javascript
 get.init(data, "myContainer", false, null, null, null, null, 0.8)
+```
+The following example demonstrates custom use of all the parameters:
+
+<p align="center">
+  <a href="https://bl.ocks.org/Kirdan/e241c2cb1ea3507e099f2c0944464a9e"><img src="m/g4s_init_full.png"></a>
+</p>
+
+## Tuning Mode
+In some cases fine tuning the parameters that are related to force-directed simulation may be tedious iterative process. To ease that pain g4s provide a convenient utility: Tuning Mode. In this mode 3 sliders will be rendered under the SVG frame, allowing to tune the **charge**, **link_distance** and **link_strength** parameters. Using the sliders will immediately change the graph and the parameters' value will be avilable for copy and pasting. To enable tuning mode simple set its parameter to true:
+```javascript
+get.init(data, "myContainer", true)
 ```
