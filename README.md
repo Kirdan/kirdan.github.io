@@ -111,4 +111,4 @@ Here is the JSON object g4s expects:
 ]
 ```
 
-For further customization and integration with your data, check the [full API reference](API.md).
+For further customization and integration with your data, check the [API reference](API.md).
