@@ -2,7 +2,7 @@
 
 g4s - shortcut for **Graph for Sets**, it's a javascript library, based on [D3.js](https://d3js.org), that visualizes sets and intersections in an intuitive way, aimed for easy insights discovery.
 
-* [Data Format](#Data-Format)
+* [Data Format](#data-format)
 * Getting Started
 * Customization
 * Tuning mode
@@ -64,7 +64,7 @@ g4s.init(data, container, tuning, height, width, charge, link_distance, link_str
 
 However at minimum g4s.init requires just the first 2 parameters:
 
-1. data - as [JSON object](#Data-Format)
+1. data - as [JSON object](#data-format)
 2. container - the ID attribute of the div container
 
 In our example:
