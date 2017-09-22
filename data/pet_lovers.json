@@ -1,7 +1,7 @@
 [
  {"sets": [0],   "label": "Dog Lovers", "size": 300},
  {"sets": [1],   "label": "Cat Lovers", "size": 260},
- {"sets": [2],   "label": "Bird Lovers C", "size": 310},
+ {"sets": [2],   "label": "Bird Lovers", "size": 310},
  {"sets": [0,1],   "size": 185},
  {"sets": [0,2],   "size": 61},
  {"sets": [1,2],   "size": 50},
