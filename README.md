@@ -110,3 +110,5 @@ Here is the JSON object g4s expects:
  {"sets": [0,1,2],  "size": 25}
 ]
 ```
+
+For further customization and integration with your data, check the [full API reference]("API.md").
