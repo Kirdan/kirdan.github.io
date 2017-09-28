@@ -82,7 +82,7 @@
 	
    	fetch('https://kirdan.github.io/data/twitter.json')
    		.then((response) => response.json())
-   		.then((sets) => g4s.init(sets, "twitter_graph"));
+   		.then((sets) => g4s.init(sets, "twitter_graph", true, null, null, 490));
 
 	g4s.inspector(updateInspector);
 	
