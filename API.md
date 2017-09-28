@@ -1,6 +1,6 @@
 # g4s API Reference
 
-g4s - shortcut for **Graph for Sets**, it's a javascript library, based on [D3.js](https://d3js.org), that visualizes sets and intersections in an intuitive way, aimed for easy insights discovery.
+g4s - shortcut for **Graph for Sets**, is a javascript library, based on [D3.js](https://d3js.org), that visualizes sets and intersections in an intuitive way, aimed for easy insights discovery.
 
 * [Data Format](#data-format)
 * [Getting Started](#getting-started)
